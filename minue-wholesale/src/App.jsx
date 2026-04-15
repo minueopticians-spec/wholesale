@@ -487,7 +487,7 @@ export default function App() {
             { name: "Bergman", col: "Essential", price: "50", c: "#8B4513" },
             { name: "Hart Black", col: "Essential", price: "50", c: "#1a1a1a" },
             { name: "Lamarr Louvre", col: "Icons", price: "50", c: "#2d6b4f" },
-            { name: "Bolden Nude", col: "Icons", price: "50", c: "#c4a882" },
+            { name: "Gugu Gold Green", col: "Icons", price: "50", c: "#c4a882", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
             { name: "Cooper II", col: "Essential", price: "50", c: "#18332f" },
             { name: "Vitti", col: "Icons", price: "50", c: "#1a5276" },
             { name: "Arden Champagne", col: "Acetato", price: "70", c: "#c9b896" },
@@ -496,8 +496,8 @@ export default function App() {
             return (
               <Fade key={i} d={i * 0.04}>
                 <div style={{ borderRadius: 5, overflow: "hidden", background: "#fff", border: "1px solid rgba(24,51,47,0.04)" }}>
-                  <div style={{ aspectRatio: "1/1", background: "linear-gradient(135deg," + prod.c + "," + prod.c + "cc)", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontFamily: SF, fontSize: 28, color: C, opacity: 0.12, fontStyle: "italic" }}>{prod.name[0]}</span>
+                  <div style={{ aspectRatio: "1/1", background: prod.img ? "url(" + prod.img + ") center/contain no-repeat " + C : "linear-gradient(135deg," + prod.c + "," + prod.c + "cc)", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {!prod.img ? <span style={{ fontFamily: SF, fontSize: 28, color: C, opacity: 0.12, fontStyle: "italic" }}>{prod.name[0]}</span> : null}
                     {i < 3 ? <div style={{ position: "absolute", top: 8, left: 8, background: D, color: G, padding: "2px 8px", borderRadius: 10, fontSize: 7, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase" }}>{t.bs[2]}</div> : null}
                   </div>
                   <div style={{ padding: "10px 12px" }}>
