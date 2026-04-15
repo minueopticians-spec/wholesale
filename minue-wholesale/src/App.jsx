@@ -484,7 +484,7 @@ export default function App() {
         </Fade>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 10 }}>
           {[
-            { name: "Bergman", col: "Acetato", price: "70", c: "#8B4513" },
+            { name: "Bergman", col: "Essential", price: "50", c: "#8B4513" },
             { name: "Hart Black", col: "Essential", price: "50", c: "#1a1a1a" },
             { name: "Lamarr Louvre", col: "Icons", price: "50", c: "#2d6b4f" },
             { name: "Bolden Nude", col: "Icons", price: "50", c: "#c4a882" },
@@ -504,7 +504,7 @@ export default function App() {
                     <p style={{ fontSize: 12, fontWeight: 500, marginBottom: 2 }}>{prod.name}</p>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                       <span style={{ fontSize: 9, opacity: 0.35 }}>{prod.col}</span>
-                      <span style={{ fontSize: 11, fontWeight: 600 }}>{prod.price}EUR</span>
+                      <span style={{ fontSize: 11, fontWeight: 600 }}><span style={{ fontSize: 8, opacity: 0.5, fontWeight: 400 }}>PVP </span>{prod.price}€</span>
                     </div>
                   </div>
                 </div>
@@ -514,42 +514,6 @@ export default function App() {
         </div>
       </section>
 
-
-      {/* BESTSELLERS */}
-      <section style={{ padding: pad, background: "#fff" }}>
-        <Fade>
-          <p style={{ fontSize: 10, letterSpacing: 3, textTransform: "uppercase", color: D, marginBottom: 10 }}>{t.bs[0]}</p>
-          <h2 style={h2Style}>{t.bs[1]}<br /><em style={{ fontStyle: "italic" }}>{t.bs[2]}</em></h2>
-        </Fade>
-        <Fade d={0.1}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12, marginTop: 32 }}>
-            {[
-              ["Bergman", "Icons", "50"],
-              ["Hart", "Essential", "50"],
-              ["Bolden", "Essential", "50"],
-              ["Lamarr", "Icons", "50"],
-              ["Vitti", "Icons", "50"],
-              ["Cooper II", "Icons", "50"],
-            ].map(function (p, i) {
-              var prodImgs = [IMG_BERGMAN, "", "", "", "", ""];
-              return (
-                <div key={i} style={{ borderRadius: 6, overflow: "hidden", border: "1px solid rgba(24,51,47,0.06)" }}>
-                  <div style={{ aspectRatio: "1/1", background: prodImgs[i] ? "url(" + prodImgs[i] + ") center/contain no-repeat " + C : "linear-gradient(135deg," + ["#2d6b4f","#18332f","#1a5276","#8B4513","#6B3A2A","#2d6b4f"][i] + "," + ["#2d6b4f","#18332f","#1a5276","#8B4513","#6B3A2A","#2d6b4f"][i] + "cc)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    {!prodImgs[i] ? <span style={{ fontFamily: SF, fontSize: 24, color: C, opacity: 0.15, fontStyle: "italic" }}>{p[0][0]}</span> : null}
-                  </div>
-                  <div style={{ padding: "10px 12px" }}>
-                    <p style={{ fontSize: 12, fontWeight: 600 }}>{p[0]}</p>
-                    <p style={{ fontSize: 9, opacity: 0.4, marginTop: 2 }}>{p[1]}</p>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 6 }}>
-                      <span style={{ padding: "3px 8px", background: G, color: C, borderRadius: 3, fontSize: 10, fontWeight: 700 }}>{t.bs[3]} {p[2]}€</span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </Fade>
-      </section>
 
       {/* FAMILIA */}
       <section style={{ padding: pad, background: "#fff" }}>
