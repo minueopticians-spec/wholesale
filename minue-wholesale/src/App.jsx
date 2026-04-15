@@ -284,7 +284,10 @@ export default function App() {
           transition: "all 0.4s",
         }}
       >
-        <img src={overHero ? LOGO_W : LOGO_D} alt="Minue" style={{ height: overHero ? 60 : 44, flexShrink: 0, transition: "height 0.4s" }} />
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0, gap: 2 }}>
+          <img src={overHero ? LOGO_W : LOGO_D} alt="Minue" style={{ height: overHero ? 50 : 36, transition: "height 0.4s" }} />
+          <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 4, color: D, padding: "1px 8px", border: "1px solid " + D, borderRadius: 2, lineHeight: 1.6 }}>B2B</span>
+        </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
           {/* Section links - fade in after hero */}
@@ -377,6 +380,7 @@ export default function App() {
             <span style={{ fontSize: 12, color: C, letterSpacing: 0.5, fontWeight: 500 }}>{t.la[1]} <em style={{ fontStyle: "italic", color: D }}>{t.la[2]}</em></span>
             <span style={{ fontSize: 12, color: D, fontWeight: 600 }}>→</span>
           </div>
+
         </Fade>
         <Fade d={0.4}>
           <div style={{ display: "flex", gap: "clamp(16px, 3vw, 40px)", marginTop: "clamp(36px, 6vh, 72px)", paddingTop: 22, borderTop: "1px solid rgba(248,239,230,0.07)", flexWrap: "wrap" }}>
@@ -463,26 +467,6 @@ export default function App() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
               {t.dl}
             </a>
-          </div>
-        </Fade>
-      </section>
-
-      {/* PACKAGING TEASER */}
-      <section style={{ padding: "clamp(36px, 5vh, 56px) clamp(18px, 5vw, 72px)", background: G, color: C }}>
-        <Fade>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", maxWidth: 700, margin: "0 auto", flexWrap: "wrap", gap: 16 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              <div style={{ width: 48, height: 80, borderRadius: 6, background: "rgba(248,239,230,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" /><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" /></svg>
-              </div>
-              <div>
-                <h3 style={{ fontFamily: SF, fontSize: 18, fontWeight: 300, marginBottom: 3 }}>{t.bp[0]}</h3>
-                <p style={{ fontSize: 11, opacity: 0.4 }}>{t.bp[1]}</p>
-              </div>
-            </div>
-            <button onClick={function () { goTo("packaging"); }} style={{ background: "none", border: "none", color: D, fontSize: 10, fontWeight: 500, letterSpacing: 1.5, textTransform: "uppercase", cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}>
-              {t.bp[2]} →
-            </button>
           </div>
         </Fade>
       </section>
@@ -612,6 +596,14 @@ export default function App() {
             {t.co.map(function (c, i) { return <span key={i} style={{ fontSize: 10, opacity: 0.3 }}>{c}</span>; })}
           </div>
         </Fade>
+        <Fade d={0.3}>
+          <div onClick={function () { goTo("france"); }} style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "10px 24px", background: "rgba(248,239,230,0.08)", borderRadius: 24, cursor: "pointer", border: "1px solid rgba(248,239,230,0.1)" }}>
+              <span style={{ fontFamily: SF, fontSize: 13, color: C, opacity: 0.65, fontStyle: "italic" }}>Du soleil de Séville au cœur de la France</span>
+              <span style={{ fontSize: 12, color: D, fontWeight: 600 }}>→</span>
+            </div>
+          </div>
+        </Fade>
       </section>
 
       {/* PARTNERS */}
@@ -681,27 +673,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* VALUES */}
-      <section style={{ padding: pad }}>
-        <Fade>
-          <div style={{ textAlign: "center", marginBottom: 28 }}>
-            <p style={{ fontSize: 10, letterSpacing: 3, textTransform: "uppercase", opacity: 0.45, marginBottom: 10 }}>{t.va[0]}</p>
-            <h2 style={h2Style}><em style={{ fontStyle: "italic" }}>{t.va[1]}</em> {t.va[2]}</h2>
-          </div>
-        </Fade>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 20, maxWidth: 680, margin: "0 auto" }}>
-          {t.vi.map(function (v, i) {
-            return (
-              <Fade key={i} d={i * 0.04}>
-                <div style={{ textAlign: "center" }}>
-                  <h3 style={{ fontFamily: SF, fontSize: 15, fontWeight: 400, marginBottom: 3 }}>{v[0]}</h3>
-                  <p style={{ fontSize: 11, opacity: 0.4 }}>{v[1]}</p>
-                </div>
-              </Fade>
-            );
-          })}
-        </div>
-      </section>
+
 
       {/* FAIRE REVIEWS */}
       <section style={{ padding: pad, background: "#fff" }}>
@@ -757,48 +729,49 @@ export default function App() {
         </Fade>
       </section>
 
-      {/* WHOLESALE */}
+      {/* VALUES + WHOLESALE */}
       <section id="wholesale" style={{ padding: pad }}>
         <Fade>
-          <div style={{ textAlign: "center", marginBottom: 36 }}>
+          <div style={{ textAlign: "center", marginBottom: 28 }}>
             <p style={{ fontSize: 10, letterSpacing: 3, textTransform: "uppercase", opacity: 0.45, marginBottom: 10 }}>{t.ws[0]}</p>
             <h2 style={h2Style}>{t.ws[1]}<br /><em style={{ fontStyle: "italic" }}>{t.ws[2]}</em></h2>
           </div>
         </Fade>
-        <Fade d={0.1}>
-          <div style={{ maxWidth: 560, margin: "0 auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              {[0, 1, 2, 3].map(function (i) {
-                var icons = [
-                  "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
-                  "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
-                  "M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0",
-                  "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                ];
-                return (
-                  <div key={i} style={{ padding: 18, borderRadius: 6, border: "1px solid rgba(24,51,47,0.06)", textAlign: "center" }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="1.5" style={{ marginBottom: 8, opacity: 0.6 }}>
-                      <path d={icons[i]} />
-                    </svg>
-                    <p style={{ fontSize: 11, fontWeight: 500, lineHeight: 1.5 }}>{t.wa[i]}</p>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 12, marginBottom: 24 }}>
+            {t.vi.map(function (v, i) {
+              var icons = [
+                "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+                "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
+                "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z",
+                "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
+                "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
+                "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              ];
+              return (
+                <Fade key={i} d={i * 0.04}>
+                  <div style={{ padding: "16px 12px", borderRadius: 6, border: "1px solid rgba(24,51,47,0.06)", textAlign: "center" }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="1.5" style={{ marginBottom: 6, opacity: 0.5 }}><path d={icons[i]} /></svg>
+                    <h4 style={{ fontFamily: SF, fontSize: 13, fontWeight: 400, marginBottom: 2 }}>{v[0]}</h4>
+                    <p style={{ fontSize: 9, opacity: 0.35, lineHeight: 1.4 }}>{v[1]}</p>
                   </div>
-                );
-              })}
-            </div>
-            <Fade d={0.2}>
-              <div style={{ textAlign: "center", marginTop: 28, padding: "24px 20px", background: G, borderRadius: 6 }}>
-                <p style={{ color: C, fontSize: 12, opacity: 0.6, lineHeight: 1.6, marginBottom: 16 }}>{t.wa[4]}</p>
-                <a href="https://b2b.minueopticians.com" target="_blank" rel="noopener noreferrer" style={{
-                  display: "inline-block", background: C, color: G, padding: "10px 24px",
-                  borderRadius: 4, fontSize: 11, fontWeight: 600, letterSpacing: 1.5,
-                  textTransform: "uppercase", textDecoration: "none"
-                }}>
-                  {t.wa[5]} →
-                </a>
-              </div>
-            </Fade>
+                </Fade>
+              );
+            })}
           </div>
-        </Fade>
+          <Fade d={0.2}>
+            <div style={{ textAlign: "center", padding: "24px 20px", background: G, borderRadius: 6 }}>
+              <p style={{ color: C, fontSize: 12, opacity: 0.6, lineHeight: 1.6, marginBottom: 16 }}>{t.wa[4]}</p>
+              <a href="https://b2b.minueopticians.com" target="_blank" rel="noopener noreferrer" style={{
+                display: "inline-block", background: C, color: G, padding: "10px 24px",
+                borderRadius: 4, fontSize: 11, fontWeight: 600, letterSpacing: 1.5,
+                textTransform: "uppercase", textDecoration: "none"
+              }}>
+                {t.wa[5]} →
+              </a>
+            </div>
+          </Fade>
+        </div>
       </section>
 
       {/* HOW WE WORK */}
@@ -993,6 +966,41 @@ export default function App() {
         </div>
       </section>
 
+      {/* FRANCE */}
+      <section id="france" style={{ padding: "clamp(32px, 4vh, 48px) clamp(18px, 5vw, 72px)", background: C }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 28, alignItems: "center", maxWidth: 700, margin: "0 auto" }}>
+          <Fade>
+            <div>
+              <p style={{ fontSize: 10, letterSpacing: 3, textTransform: "uppercase", color: D, marginBottom: 10 }}>Minuë France</p>
+              <h3 style={{ fontFamily: SF, fontSize: "clamp(1.3rem, 2vw, 1.7rem)", fontWeight: 300, lineHeight: 1.2, marginBottom: 16 }}>Retrouvez-nous<br /><em style={{ fontStyle: "italic" }}>en France</em></h3>
+              <p style={{ fontSize: 11, opacity: 0.45, lineHeight: 1.7 }}>Minuë est disponible en France grâce à notre distributeur MPM Diffusion. Contactez-le directement pour découvrir la collection.</p>
+            </div>
+          </Fade>
+          <Fade d={0.1}>
+            <div style={{ background: G, borderRadius: 8, padding: 24, color: C }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+                <img src={LOGO_W} alt="Minue" style={{ height: 24 }} />
+                <div style={{ width: 1, height: 16, background: "rgba(248,239,230,0.15)" }} />
+                <span style={{ fontSize: 10, opacity: 0.5, letterSpacing: 1 }}>FRANCE</span>
+              </div>
+              <p style={{ fontSize: 14, fontWeight: 600, marginBottom: 2 }}>MPM Diffusion</p>
+              <p style={{ fontSize: 10, color: D, marginBottom: 10 }}>Toulouse Showroom</p>
+              <p style={{ fontSize: 9, opacity: 0.35, lineHeight: 1.5, marginBottom: 14 }}>15 allée de Longueterre, Bat. 1, 2ème étage<br />Montrabé, Midi-Pyrénées, France</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6, borderTop: "1px solid rgba(248,239,230,0.08)", paddingTop: 12 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  <a href="mailto:mpm.diffusion@outlook.fr" style={{ fontSize: 10, color: C, opacity: 0.65, textDecoration: "none" }}>mpm.diffusion@outlook.fr</a>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  <span style={{ fontSize: 10, opacity: 0.6 }}>+33 6 77 16 64 21</span>
+                </div>
+              </div>
+            </div>
+          </Fade>
+        </div>
+      </section>
+
       {/* DISTRIBUTORS */}
       <section id="distributors" style={{ padding: pad, background: G, color: C }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 36, alignItems: "center", maxWidth: 780, margin: "0 auto" }}>
@@ -1096,6 +1104,21 @@ export default function App() {
           </div>
         </Fade>
       </section>
+
+      {/* FLOATING CTA */}
+      {scrollY > 400 ? <a href="mailto:hola@minueopticians.com?subject=Solicitar Acceso B2B" style={{
+        position: "fixed", bottom: 24, left: 24, zIndex: 90,
+        display: "flex", alignItems: "center", gap: 8,
+        background: D, color: G, border: "none",
+        padding: "10px 20px", borderRadius: 24,
+        fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase",
+        textDecoration: "none",
+        boxShadow: "0 4px 16px rgba(184,134,11,0.25)",
+        transition: "opacity 0.3s",
+      }}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Solicitar Acceso
+      </a> : null}
 
       {/* BACK TO TOP */}
       {scrollY > 600 ? <button onClick={function () { window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{
