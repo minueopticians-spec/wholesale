@@ -33,7 +33,7 @@ const MAP_PTS = [
 
 const TX = {
   ES: {
-    bp: ["Mas que un packaging","Descubre la experiencia Beyond the Frame SS26","Ver Packaging"], bt: ["Especificaciones Tecnicas","UV400, policarbonato, certificacion UE y FDA. Conoce cada detalle.","Ver Especificaciones"], db: ["Distribuye Minuë", "¿Quieres representarnos", "en tu zona?", "Buscamos distribuidores y agentes comerciales que compartan nuestra visión. Una marca en crecimiento con presencia en 14 países, clientela fiel y un producto que se vende solo.", "Exclusividad territorial", "Material de marketing y expositores", "Formación y soporte comercial dedicado", "Márgenes atractivos y política de precios estable", "Plataforma de gestión B2B propia", "Hablemos", "hola@minueopticians.com"], mn: [["Contactar","Hablemos de tu proyecto","hola@minueopticians.com"],["Acceso B2B","Regístrate en nuestra plataforma","b2b.minueopticians.com"],["Pedir por Faire","Haz tu pedido en Faire","faire.com/minue"],["Ver Diseños","Explora toda la colección","minueopticians.com"],["Novedades","Lo último de Minuë","SS26 Beyond the Frame"]], nl: [["Colecciones","collections"],["Partners","wholesale"],["Distribuidores","distributors"],["Contacto","cta"]], nd: "¿Eres distribuidor?", na: "Solicitar Acceso",
+    bp: ["Mas que un packaging","Descubre la experiencia Beyond the Frame SS26","Ver Packaging"], bt: ["Especificaciones Tecnicas","UV400, policarbonato, certificacion UE y FDA. Conoce cada detalle.","Ver Especificaciones"], la: ["Minuë Latinoamérica", "Ahora también", "en LATAM", "Minuë llega a Latinoamérica de la mano de nuestro socio comercial en Bogotá. Si tienes una óptica, concept store o quieres distribuir Minuë en tu país, contacta directamente con nuestro equipo en LATAM.", "Bogotá, Colombia", "CRA 19a 85 69", "Todo Latinoamérica", "Contactar LATAM"], db: ["Distribuye Minuë", "¿Quieres representarnos", "en tu zona?", "Buscamos distribuidores y agentes comerciales que compartan nuestra visión. Una marca en crecimiento con presencia en 14 países, clientela fiel y un producto que se vende solo.", "Exclusividad territorial", "Material de marketing y expositores", "Formación y soporte comercial dedicado", "Márgenes atractivos y política de precios estable", "Plataforma de gestión B2B propia", "Hablemos", "hola@minueopticians.com"], mn: [["Contactar","Hablemos de tu proyecto","hola@minueopticians.com"],["Acceso B2B","Regístrate en nuestra plataforma","b2b.minueopticians.com"],["Pedir por Faire","Haz tu pedido en Faire","faire.com/minue"],["Ver Diseños","Explora toda la colección","minueopticians.com"],["Novedades","Lo último de Minuë","SS26 Beyond the Frame"]], nl: [["Colecciones","collections"],["Partners","wholesale"],["Distribuidores","distributors"],["Contacto","cta"]], nd: "¿Eres distribuidor?", na: "Solicitar Acceso",
     h: ["B2B Eyewear · Seville, desde 2019", "Más allá", "de lo", "ordinario", "Gafas de sol diseñadas en España para retailers que buscan estilo diferenciador, calidad premium y márgenes excepcionales.", "Ser Partner", "Explorar"],
     st: ["56+", "Modelos", "163+", "Productos", "14", "Países", "6+", "Años"],
     tk: [["350+","Ciudades"],["14","Países"],["56+","Diseños"],["163+","Productos"],["6+","Años"]],
@@ -61,7 +61,7 @@ const TX = {
     ct: ["Entra en el mundo Minuë", "¿Listo para", "destacar", "?", "Solicitar Acceso B2B", "Ver en Faire"],
   },
   FR: {
-    bp: ["Plus qu'un packaging","Decouvrez l'experience Beyond the Frame SS26","Voir Packaging"], bt: ["Specifications Techniques","UV400, polycarbonate, certifications UE et FDA.","Voir Specifications"], db: ["Distribuez Minuë", "Vous souhaitez nous représenter", "dans votre zone?", "Nous recherchons des distributeurs et agents commerciaux qui partagent notre vision. Une marque en croissance présente dans 14 pays, une clientèle fidèle et un produit qui se vend tout seul.", "Exclusivité territoriale", "Matériel marketing et présentoirs", "Formation et support commercial dédié", "Marges attractives et politique de prix stable", "Plateforme de gestion B2B propriétaire", "Parlons-en", "hola@minueopticians.com"], mn: [["Contacter","Parlons de votre projet","hola@minueopticians.com"],["Acces B2B","Inscrivez-vous sur notre plateforme","b2b.minueopticians.com"],["Commander sur Faire","Passez commande sur Faire","faire.com/minue"],["Voir les Designs","Explorez toute la collection","minueopticians.com"],["Nouveautes","Les dernieres nouvelles Minue","SS26 Beyond the Frame"]], nl: [["Collections","collections"],["Partners","wholesale"],["Distributeurs","distributors"],["Contact","cta"]], nd: "Distributeur?", na: "Demander Acces",
+    bp: ["Plus qu'un packaging","Decouvrez l'experience Beyond the Frame SS26","Voir Packaging"], bt: ["Specifications Techniques","UV400, polycarbonate, certifications UE et FDA.","Voir Specifications"], la: ["Minuë Amérique Latine", "Maintenant aussi", "en LATAM", "Minuë arrive en Amérique Latine grâce à notre partenaire commercial à Bogotá. Si vous avez une optique, un concept store ou souhaitez distribuer Minuë dans votre pays, contactez directement notre équipe LATAM.", "Bogotá, Colombie", "CRA 19a 85 69", "Toute l'Amérique Latine", "Contacter LATAM"], db: ["Distribuez Minuë", "Vous souhaitez nous représenter", "dans votre zone?", "Nous recherchons des distributeurs et agents commerciaux qui partagent notre vision. Une marque en croissance présente dans 14 pays, une clientèle fidèle et un produit qui se vend tout seul.", "Exclusivité territoriale", "Matériel marketing et présentoirs", "Formation et support commercial dédié", "Marges attractives et politique de prix stable", "Plateforme de gestion B2B propriétaire", "Parlons-en", "hola@minueopticians.com"], mn: [["Contacter","Parlons de votre projet","hola@minueopticians.com"],["Acces B2B","Inscrivez-vous sur notre plateforme","b2b.minueopticians.com"],["Commander sur Faire","Passez commande sur Faire","faire.com/minue"],["Voir les Designs","Explorez toute la collection","minueopticians.com"],["Nouveautes","Les dernieres nouvelles Minue","SS26 Beyond the Frame"]], nl: [["Collections","collections"],["Partners","wholesale"],["Distributeurs","distributors"],["Contact","cta"]], nd: "Distributeur?", na: "Demander Acces",
     h: ["B2B Eyewear · Seville, depuis 2019", "Au-dela", "du cadre", "ordinaire", "Lunettes concues en Espagne pour detaillants exigeants en style et marges.", "Devenir Partenaire", "Explorer"],
     st: ["56+", "Modeles", "163+", "Produits", "14", "Pays", "6+", "Ans"],
     tk: [["350+","Villes"],["14","Pays"],["56+","Designs"],["163+","Produits"],["6+","Ans"]],
@@ -89,7 +89,7 @@ const TX = {
     ct: ["Entrez dans l'univers Minue", "Pret a", "vous demarquer", " ?", "Demander l'Acces", "Voir sur Faire"],
   },
   DE: {
-    bp: ["Mehr als nur Verpackung","Entdecken Sie das Beyond the Frame SS26 Erlebnis","Packaging Entdecken"], bt: ["Technische Daten","UV400, Polycarbonat, EU- und FDA-Zertifizierung.","Details Ansehen"], db: ["Vertreiben Sie Minuë", "Möchten Sie uns", "in Ihrer Region vertreten?", "Wir suchen Distributoren und Handelsvertreter, die unsere Vision teilen. Eine wachsende Marke in 14 Ländern, treue Kundschaft und ein Produkt, das sich von selbst verkauft.", "Territoriale Exklusivität", "Marketingmaterial und Displays", "Schulung und dedizierter Vertriebssupport", "Attraktive Margen und stabile Preispolitik", "Eigene B2B-Management-Plattform", "Sprechen wir darüber", "hola@minueopticians.com"], mn: [["Kontakt","Sprechen wir uber Ihr Projekt","hola@minueopticians.com"],["B2B-Zugang","Registrieren Sie sich","b2b.minueopticians.com"],["Uber Faire bestellen","Bestellen Sie auf Faire","faire.com/minue"],["Alle Designs","Entdecken Sie die Kollektion","minueopticians.com"],["Neuigkeiten","Das Neueste von Minue","SS26 Beyond the Frame"]], nl: [["Kollektionen","collections"],["Partners","wholesale"],["Distributoren","distributors"],["Kontakt","cta"]], nd: "Distributor?", na: "Zugang Anfragen",
+    bp: ["Mehr als nur Verpackung","Entdecken Sie das Beyond the Frame SS26 Erlebnis","Packaging Entdecken"], bt: ["Technische Daten","UV400, Polycarbonat, EU- und FDA-Zertifizierung.","Details Ansehen"], la: ["Minuë Lateinamerika", "Jetzt auch", "in LATAM", "Minuë kommt nach Lateinamerika durch unseren Handelspartner in Bogotá. Wenn Sie ein Optikgeschäft, einen Concept Store haben oder Minuë in Ihrem Land vertreiben möchten, kontaktieren Sie direkt unser LATAM-Team.", "Bogotá, Kolumbien", "CRA 19a 85 69", "Ganz Lateinamerika", "LATAM kontaktieren"], db: ["Vertreiben Sie Minuë", "Möchten Sie uns", "in Ihrer Region vertreten?", "Wir suchen Distributoren und Handelsvertreter, die unsere Vision teilen. Eine wachsende Marke in 14 Ländern, treue Kundschaft und ein Produkt, das sich von selbst verkauft.", "Territoriale Exklusivität", "Marketingmaterial und Displays", "Schulung und dedizierter Vertriebssupport", "Attraktive Margen und stabile Preispolitik", "Eigene B2B-Management-Plattform", "Sprechen wir darüber", "hola@minueopticians.com"], mn: [["Kontakt","Sprechen wir uber Ihr Projekt","hola@minueopticians.com"],["B2B-Zugang","Registrieren Sie sich","b2b.minueopticians.com"],["Uber Faire bestellen","Bestellen Sie auf Faire","faire.com/minue"],["Alle Designs","Entdecken Sie die Kollektion","minueopticians.com"],["Neuigkeiten","Das Neueste von Minue","SS26 Beyond the Frame"]], nl: [["Kollektionen","collections"],["Partners","wholesale"],["Distributoren","distributors"],["Kontakt","cta"]], nd: "Distributor?", na: "Zugang Anfragen",
     h: ["B2B Eyewear · Seville, seit 2019", "Jenseits", "des", "Gewohnlichen", "In Spanien designte Sonnenbrillen fur anspruchsvolle Einzelhandler.", "Partner Werden", "Entdecken"],
     st: ["56+", "Modelle", "163+", "Produkte", "14", "Lander", "6+", "Jahre"],
     tk: [["350+","Stadte"],["14","Lander"],["56+","Designs"],["163+","Produkte"],["6+","Jahre"]],
@@ -117,7 +117,7 @@ const TX = {
     ct: ["Welt von Minue", "Bereit", "aufzufallen", " ?", "B2B-Zugang", "Auf Faire"],
   },
   EN: {
-    bp: ["Mas que un packaging","Descubre la experiencia Beyond the Frame SS26","Ver Packaging"], bt: ["Especificaciones Tecnicas","UV400, policarbonato, certificacion UE y FDA. Conoce cada detalle.","Ver Especificaciones"], db: ["Distribute Minuë", "Want to represent us", "in your area?", "We are looking for distributors and commercial agents who share our vision. A growing brand present in 14 countries, loyal clientele and a product that sells itself.", "Territorial exclusivity", "Marketing materials and displays", "Training and dedicated commercial support", "Attractive margins and stable pricing policy", "Proprietary B2B management platform", "Let us talk", "hola@minueopticians.com"], mn: [["Contact","Let us talk about your project","hola@minueopticians.com"],["B2B Access","Register on our platform","b2b.minueopticians.com"],["Order on Faire","Place your order on Faire","faire.com/minue"],["View Designs","Explore the full collection","minueopticians.com"],["News","Latest from Minue","SS26 Beyond the Frame"]], nl: [["Collections","collections"],["Partners","wholesale"],["Distributors","distributors"],["Contact","cta"]], nd: "Distributor?", na: "Request Access",
+    bp: ["Mas que un packaging","Descubre la experiencia Beyond the Frame SS26","Ver Packaging"], bt: ["Especificaciones Tecnicas","UV400, policarbonato, certificacion UE y FDA. Conoce cada detalle.","Ver Especificaciones"], la: ["Minuë Latin America", "Now also", "in LATAM", "Minuë arrives in Latin America through our commercial partner in Bogotá. If you have an optician shop, concept store or want to distribute Minuë in your country, contact our LATAM team directly.", "Bogotá, Colombia", "CRA 19a 85 69", "All Latin America", "Contact LATAM"], db: ["Distribute Minuë", "Want to represent us", "in your area?", "We are looking for distributors and commercial agents who share our vision. A growing brand present in 14 countries, loyal clientele and a product that sells itself.", "Territorial exclusivity", "Marketing materials and displays", "Training and dedicated commercial support", "Attractive margins and stable pricing policy", "Proprietary B2B management platform", "Let us talk", "hola@minueopticians.com"], mn: [["Contact","Let us talk about your project","hola@minueopticians.com"],["B2B Access","Register on our platform","b2b.minueopticians.com"],["Order on Faire","Place your order on Faire","faire.com/minue"],["View Designs","Explore the full collection","minueopticians.com"],["News","Latest from Minue","SS26 Beyond the Frame"]], nl: [["Collections","collections"],["Partners","wholesale"],["Distributors","distributors"],["Contact","cta"]], nd: "Distributor?", na: "Request Access",
     h: ["B2B Eyewear · Seville, since 2019", "Beyond", "the", "ordinary", "Spanish-designed sunglasses for retailers who demand distinctive style and exceptional margins.", "Become a Partner", "Explore"],
     st: ["56+", "Models", "163+", "Products", "14", "Countries", "6+", "Years"],
     tk: [["350+","Cities"],["14","Countries"],["56+","Designs"],["163+","Products"],["6+","Years"]],
@@ -363,6 +363,11 @@ export default function App() {
               {t.h[6]}
             </button>
           </div>
+          <div onClick={function () { goTo("latam"); }} style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 16, padding: "8px 16px", background: "rgba(248,239,230,0.08)", borderRadius: 24, cursor: "pointer", border: "1px solid rgba(248,239,230,0.1)" }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill={C} opacity="0.7" style={{ flexShrink: 0 }}><path d="M12 4c-.5 0-1.2.3-1.5.8L9 7l-1 2.5.5 2 1.5 1.5-.5 2-1 1.5v2l1 1.5 2 .5 1.5-1 1-2 .5-2.5-1-2 .5-2L14 8l-1-2.5-.5-1z"/></svg>
+            <span style={{ fontSize: 10, color: C, opacity: 0.7, letterSpacing: 0.5 }}>{t.la[1]} <em style={{ fontStyle: "italic" }}>{t.la[2]}</em></span>
+            <span style={{ fontSize: 10, color: D }}>→</span>
+          </div>
         </Fade>
         <Fade d={0.4}>
           <div style={{ display: "flex", gap: "clamp(16px, 3vw, 40px)", marginTop: "clamp(36px, 6vh, 72px)", paddingTop: 22, borderTop: "1px solid rgba(248,239,230,0.07)", flexWrap: "wrap" }}>
@@ -485,12 +490,15 @@ export default function App() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 10 }}>
           {[
             { name: "Bergman Rust", col: "Essential", price: "50", c: "#8B4513", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277356/209_m09kf5.png" },
+            { name: "Bergman Brown Carey", col: "Essential", price: "50", c: "#6B4226", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776278143/198_zwfjrd.png" },
+            { name: "Chastain Rouge Light", col: "Essential", price: "50", c: "#c4756b", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277356/136_djjduf.png" },
             { name: "Bolden Bruma", col: "Essential", price: "50", c: "#c4b5a0", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277357/82_k0ch1q.png" },
             { name: "Lamarr Louvre", col: "Icons", price: "50", c: "#2d6b4f", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
             { name: "Gugu Gold Green", col: "Icons", price: "50", c: "#c4a882", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
             { name: "Leigh Chalk", col: "Acetato", price: "70", c: "#e8dcc8", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277356/112_rljk4y.png" },
-            { name: "Vitti", col: "Icons", price: "50", c: "#1a5276" },
-            { name: "Arden Champagne", col: "Acetato", price: "70", c: "#c9b896" },
+            { name: "Lawrence Guiza", col: "Icons", price: "50", c: "#c4a882", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+            { name: "Berry Tea", col: "Icons", price: "50", c: "#8B6B5A", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+            { name: "Arden Cocoa", col: "Acetato", price: "70", c: "#8B6B4A", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776278143/98_qgiol5.png" },
             { name: "Novak Mocha", col: "Acetato", price: "70", c: "#6B3A2A", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277357/92_jyflpk.png" },
           ].map(function (prod, i) {
             return (
@@ -934,6 +942,76 @@ export default function App() {
         </Fade>
       </section>
 
+
+
+      {/* LATAM */}
+      <section id="latam" style={{ padding: pad, background: "#fff", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: -40, right: -40, width: 200, height: 200, borderRadius: "50%", border: "1px solid rgba(24,51,47,0.03)" }} />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 36, alignItems: "center", maxWidth: 780, margin: "0 auto" }}>
+          <div>
+            <Fade>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill={D} style={{ flexShrink: 0 }}><path d="M12 4c-.5 0-1.2.3-1.5.8L9 7l-1 2.5.5 2 1.5 1.5-.5 2-1 1.5v2l1 1.5 2 .5 1.5-1 1-2 .5-2.5-1-2 .5-2L14 8l-1-2.5-.5-1z"/></svg>
+                <p style={{ fontSize: 10, letterSpacing: 3, textTransform: "uppercase", color: D, fontWeight: 600 }}>{t.la[0]}</p>
+              </div>
+              <h2 style={h2Style}>{t.la[1]}<br /><em style={{ fontStyle: "italic" }}>{t.la[2]}</em></h2>
+              <p style={{ fontSize: 12, opacity: 0.55, lineHeight: 1.7, marginTop: 18, maxWidth: 380 }}>{t.la[3]}</p>
+            </Fade>
+            <Fade d={0.15}>
+              <div style={{ display: "flex", gap: 10, marginTop: 24, flexWrap: "wrap" }}>
+                <a href="mailto:hola@minueopticians.co?subject=Minuë LATAM" style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  background: G, color: C, padding: "10px 20px",
+                  borderRadius: 4, fontSize: 11, fontWeight: 600, letterSpacing: 1.5,
+                  textTransform: "uppercase", textDecoration: "none",
+                }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={C} strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  {t.la[7]}
+                </a>
+                <a href="https://wa.me/573227701800" target="_blank" rel="noopener noreferrer" style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  background: "#8B6B4A", color: "#fff", padding: "10px 20px",
+                  borderRadius: 4, fontSize: 11, fontWeight: 600, letterSpacing: 1,
+                  textDecoration: "none",
+                }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                  WhatsApp
+                </a>
+              </div>
+            </Fade>
+          </div>
+          <Fade d={0.1}>
+            <div style={{ background: G, borderRadius: 8, padding: 28, color: C }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
+                <img src={LOGO_W} alt="Minue" style={{ height: 28 }} />
+                <div style={{ width: 1, height: 20, background: "rgba(248,239,230,0.15)" }} />
+                <span style={{ fontSize: 11, opacity: 0.5, letterSpacing: 1 }}>LATAM</span>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <div>
+                  <p style={{ fontSize: 8, letterSpacing: 2, textTransform: "uppercase", opacity: 0.3, marginBottom: 4 }}>{t.la[6]}</p>
+                  <p style={{ fontSize: 13, fontWeight: 500 }}>{t.la[4]}</p>
+                  <p style={{ fontSize: 10, opacity: 0.4, marginTop: 2 }}>{t.la[5]}</p>
+                </div>
+                <div style={{ borderTop: "1px solid rgba(248,239,230,0.08)", paddingTop: 14, display: "flex", flexDirection: "column", gap: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <span style={{ fontSize: 11, opacity: 0.7 }}>hola@minueopticians.co</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <span style={{ fontSize: 11, opacity: 0.7 }}>+57 (322) 770-1800</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    <a href="https://minueopticians.co" target="_blank" rel="noopener noreferrer" style={{ fontSize: 11, color: D, textDecoration: "none" }}>minueopticians.co</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Fade>
+        </div>
+      </section>
 
       {/* DISTRIBUTORS */}
       <section id="distributors" style={{ padding: pad, background: G, color: C }}>
