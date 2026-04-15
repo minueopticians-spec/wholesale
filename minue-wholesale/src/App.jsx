@@ -413,12 +413,16 @@ export default function App() {
           {t.ci.map(function (c, i) {
             return (
               <Fade key={i} d={i * 0.07}>
-                <div style={{ height: "clamp(280px, 40vh, 380px)", borderRadius: 4, overflow: "hidden", background: i === 2 ? "linear-gradient(160deg," + COL_BG[i] + "cc," + COL_BG[i] + "99), url(https://res.cloudinary.com/dekvzwn7b/image/upload/w_600,q_auto,f_auto/v1776281200/sdasddsad_lk9yai.png)" : "linear-gradient(160deg," + COL_BG[i] + "," + COL_BG[i] + "bb)", backgroundSize: "cover", backgroundPosition: "center", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "clamp(14px, 2vw, 24px)", color: C }}>
+                <div style={{ height: "clamp(280px, 40vh, 380px)", borderRadius: 4, overflow: "hidden", position: "relative", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: C }}>
+                  <img src={["https://res.cloudinary.com/dekvzwn7b/image/upload/w_600,q_auto,f_auto/v1776281360/_ABD8565_vyyr2r.jpg","https://res.cloudinary.com/dekvzwn7b/image/upload/w_600,q_auto,f_auto/v1776280946/_ABD8530_kny74u.jpg","https://res.cloudinary.com/dekvzwn7b/image/upload/w_600,q_auto,f_auto/v1776281200/sdasddsad_lk9yai.png"][i]} alt={c[0]} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "70%", background: "linear-gradient(0deg, " + COL_BG[i] + "ee 0%, " + COL_BG[i] + "cc 40%, transparent 100%)" }} />
+                  <div style={{ position: "relative", zIndex: 1, padding: "clamp(14px, 2vw, 24px)" }}>
                   <p style={{ fontSize: 8, letterSpacing: 3, textTransform: "uppercase", opacity: 0.4, marginBottom: 4 }}>{c[1]}</p>
                   <h3 style={{ fontFamily: SF, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", fontWeight: 300 }}>{c[0]}</h3>
                   <div style={{ width: 20, height: 1, background: C, opacity: 0.2, margin: "10px 0" }} />
                   <p style={{ fontSize: 11, opacity: 0.6 }}>{c[3]}</p>
                   <p style={{ fontSize: 9, opacity: 0.3, marginTop: 8 }}>{c[2]}</p>
+                  </div>
                 </div>
               </Fade>
             );
