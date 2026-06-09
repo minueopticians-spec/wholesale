@@ -706,7 +706,7 @@ function Landing() {
           color: C, position: "relative", overflow: "hidden",
         }}
       >
-        <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39_44c32943-2007-46af-8be9-108b17eb72b4.png?v=1781006140" alt="" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39_44c32943-2007-46af-8be9-108b17eb72b4.png?v=1781006140" alt="" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "75%", background: "linear-gradient(0deg, rgba(24,51,47,0.92) 0%, rgba(24,51,47,0.6) 50%, transparent 100%)" }} />
         <div style={{ position: "relative", zIndex: 1, padding: "0 clamp(18px, 6vw, 72px)" }}>
         <Fade>
