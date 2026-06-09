@@ -631,7 +631,7 @@ function Landing() {
           padding: "0 clamp(16px, 4vw, 40px)",
           height: overHero ? 88 : 72,
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          background: overHero ? "transparent" : "rgba(248,239,230,0.95)",
+          background: overHero ? G : "rgba(248,239,230,0.95)",
           backdropFilter: overHero ? "none" : "blur(16px)",
           borderBottom: overHero ? "none" : "1px solid rgba(24,51,47,0.05)",
           transition: "all 0.4s",
@@ -702,12 +702,13 @@ function Landing() {
       <section
         style={{
           minHeight: "100vh", display: "flex", flexDirection: "column",
-          justifyContent: "center", padding: "92px clamp(18px, 6vw, 72px) 44px",
-          background: "linear-gradient(160deg, rgba(24,51,47,0.88), rgba(24,51,47,0.75)), url(https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39_44c32943-2007-46af-8be9-108b17eb72b4.png?v=1781006140)",
-          backgroundSize: "cover", backgroundPosition: "center",
-          color: C, position: "relative",
+          justifyContent: "flex-end", padding: "0 0 44px 0",
+          color: C, position: "relative", overflow: "hidden",
         }}
       >
+        <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39_44c32943-2007-46af-8be9-108b17eb72b4.png?v=1781006140" alt="" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "75%", background: "linear-gradient(0deg, rgba(24,51,47,0.92) 0%, rgba(24,51,47,0.6) 50%, transparent 100%)" }} />
+        <div style={{ position: "relative", zIndex: 1, padding: "0 clamp(18px, 6vw, 72px)" }}>
         <Fade>
           <p style={{ fontSize: 10, letterSpacing: 3, textTransform: "uppercase", color: D, marginBottom: 22 }}>
             {t.h[0]}
@@ -751,6 +752,7 @@ function Landing() {
             })}
           </div>
         </Fade>
+        </div>
       </section>
 
       {/* QUOTE — Coco Chanel */}
