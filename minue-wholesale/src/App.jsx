@@ -233,6 +233,329 @@ function Counter({ end, suffix, duration }) {
 
 
 export default function App() {
+  const [page, setPage] = useState(function () {
+    return window.location.hash === "#/catalogo" ? "catalogo" : "landing";
+  });
+
+  useEffect(function () {
+    function onHash() {
+      setPage(window.location.hash === "#/catalogo" ? "catalogo" : "landing");
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener("hashchange", onHash);
+    return function () { window.removeEventListener("hashchange", onHash); };
+  }, []);
+
+  if (page === "catalogo") return <Catalogo />;
+  return <Landing />;
+}
+
+/* ===================== CATALOG DATA ===================== */
+var PRODUCTS = [
+  { id: 1, name: "Bergman Rust", col: "Essential", price: 50, colors: ["marrón","cálido"], tags: ["clásico","bestseller"], rank: 1, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png?v=1776245807" },
+  { id: 2, name: "Bergman Brown Carey", col: "Essential", price: 50, colors: ["marrón","carey"], tags: ["clásico","carey"], rank: 2, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162.png?v=1774601046" },
+  { id: 3, name: "Chastain Rouge Light", col: "Essential", price: 50, colors: ["rosa","rojo"], tags: ["color","femenino"], rank: 5, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png?v=1774601149" },
+  { id: 4, name: "Bolden Bruma", col: "Essential", price: 50, colors: ["gris","neutro"], tags: ["minimal","unisex"], rank: 6, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/194.png?v=1772012134" },
+  { id: 5, name: "Lamarr Louvre", col: "Icons", price: 50, colors: ["negro","dorado"], tags: ["bold","bestseller"], rank: 3, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4639.jpg?v=1706549463" },
+  { id: 6, name: "Gugu Gold Green", col: "Icons", price: 50, colors: ["verde","dorado"], tags: ["color","bold"], rank: 4, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/products/GUGUGOLDGREENMINUEWEB.png?v=1624405247" },
+  { id: 7, name: "Lawrence Guiza", col: "Icons", price: 50, colors: ["beige","cálido"], tags: ["clásico","elegante"], rank: 8, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/image_b5a853c2-8868-432d-b7a6-df3510f4be8c.webp?v=1706548881" },
+  { id: 8, name: "Berry Tea", col: "Icons", price: 50, colors: ["marrón","cálido"], tags: ["clásico"], rank: 9, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0263.jpg?v=1719409656" },
+  { id: 9, name: "Leigh Chalk", col: "Acetato", price: 70, colors: ["beige","neutro"], tags: ["premium","minimal"], rank: 7, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png?v=1772021467" },
+  { id: 10, name: "Arden Cocoa", col: "Acetato", price: 70, colors: ["marrón","cálido"], tags: ["premium","elegante"], rank: 10, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/98.png?v=1772021745" },
+  { id: 11, name: "Novak Mocha", col: "Acetato", price: 70, colors: ["marrón","neutro"], tags: ["premium","unisex"], rank: 11, img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png?v=1772021879" },
+];
+
+var COLOR_FILTERS = [
+  { label: "Todos", value: null },
+  { label: "Marrón", value: "marrón", hex: "#8B6B4A" },
+  { label: "Negro", value: "negro", hex: "#222" },
+  { label: "Verde", value: "verde", hex: "#2d6b4f" },
+  { label: "Dorado", value: "dorado", hex: "#b8860b" },
+  { label: "Rosa", value: "rosa", hex: "#c4756b" },
+  { label: "Beige", value: "beige", hex: "#c9b896" },
+  { label: "Gris", value: "gris", hex: "#888" },
+  { label: "Carey", value: "carey", hex: "#6B4226" },
+];
+
+/* ===================== CATALOG PAGE ===================== */
+function Catalogo() {
+  var [tab, setTab] = useState("top");
+  var [colFilter, setColFilter] = useState(null);
+  var [colorFilter, setColorFilter] = useState(null);
+  var [cart, setCart] = useState([]);
+  var [cartOpen, setCartOpen] = useState(false);
+  var [scrollY, setScrollY] = useState(0);
+
+  useEffect(function () {
+    function onScroll() { setScrollY(window.scrollY); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return function () { window.removeEventListener("scroll", onScroll); };
+  }, []);
+
+  function addToCart(p) {
+    setCart(function (prev) {
+      var exists = prev.find(function (item) { return item.id === p.id; });
+      if (exists) return prev.map(function (item) { return item.id === p.id ? { ...item, qty: item.qty + 1 } : item; });
+      return prev.concat([{ ...p, qty: 1 }]);
+    });
+  }
+
+  function removeFromCart(id) {
+    setCart(function (prev) { return prev.filter(function (item) { return item.id !== id; }); });
+  }
+
+  function updateQty(id, delta) {
+    setCart(function (prev) {
+      return prev.map(function (item) {
+        if (item.id !== id) return item;
+        var nq = item.qty + delta;
+        return nq > 0 ? { ...item, qty: nq } : item;
+      });
+    });
+  }
+
+  function getFiltered() {
+    var list = PRODUCTS.slice();
+    if (tab === "top") list.sort(function (a, b) { return a.rank - b.rank; });
+    if (colFilter) list = list.filter(function (p) { return p.col === colFilter; });
+    if (colorFilter) list = list.filter(function (p) { return p.colors.indexOf(colorFilter) >= 0; });
+    return list;
+  }
+
+  function buildOrderText() {
+    var lines = cart.map(function (item) {
+      return item.qty + "x " + item.name + " (" + item.col + ") — " + item.price + "€/ud";
+    });
+    var total = cart.reduce(function (s, i) { return s + i.qty * i.price; }, 0);
+    return "Hola Minuë, me gustaría hacer un pedido:\n\n" + lines.join("\n") + "\n\nTotal: " + total + "€\n\nGracias";
+  }
+
+  function sendWhatsApp() {
+    window.open("https://wa.me/34661018380?text=" + encodeURIComponent(buildOrderText()), "_blank");
+  }
+
+  function sendEmail() {
+    window.open("mailto:hola@minueopticians.com?subject=Pedido Wholesale Minuë&body=" + encodeURIComponent(buildOrderText()), "_blank");
+  }
+
+  var filtered = getFiltered();
+  var cartCount = cart.reduce(function (s, i) { return s + i.qty; }, 0);
+  var pad = "clamp(24px, 4vw, 48px)";
+
+  return (
+    <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: G, background: C, minHeight: "100vh" }}>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');`}</style>
+
+      {/* CATALOG NAV */}
+      <nav style={{ position: "sticky", top: 0, zIndex: 99, background: G, padding: "0 " + pad, height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <a href="#/" style={{ color: C, textDecoration: "none", fontSize: 11, opacity: 0.5, display: "flex", alignItems: "center", gap: 6 }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={C} strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+            Volver
+          </a>
+          <div style={{ width: 1, height: 20, background: "rgba(248,239,230,0.1)" }} />
+          <img src={LOGO_W} alt="Minue" style={{ height: 28 }} />
+          <span style={{ fontSize: 7, fontWeight: 700, letterSpacing: 3, color: D, padding: "1px 5px", border: "1px solid " + D, borderRadius: 2 }}>CATÁLOGO</span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <a href="https://drive.google.com/PEGA-TU-ENLACE-AQUI" target="_blank" rel="noopener noreferrer" style={{ color: C, opacity: 0.4, fontSize: 10, textDecoration: "none", letterSpacing: 1 }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={C} strokeWidth="2" style={{ marginRight: 4, verticalAlign: "middle" }}><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            PDF
+          </a>
+          <button onClick={function () { setCartOpen(!cartOpen); }} style={{ position: "relative", background: "none", border: "none", cursor: "pointer", padding: 6 }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C} strokeWidth="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            {cartCount > 0 && <span style={{ position: "absolute", top: 0, right: 0, width: 16, height: 16, borderRadius: "50%", background: D, color: G, fontSize: 8, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>{cartCount}</span>}
+          </button>
+        </div>
+      </nav>
+
+      {/* HEADER */}
+      <div style={{ padding: "clamp(32px, 5vh, 56px) " + pad + " 24px", background: G, color: C }}>
+        <p style={{ fontSize: 10, letterSpacing: 4, textTransform: "uppercase", color: D, marginBottom: 12 }}>SS26 Collection</p>
+        <h1 style={{ fontFamily: SF, fontWeight: 300, fontSize: "clamp(1.8rem, 4vw, 2.8rem)", lineHeight: 1.1 }}>Explora, selecciona<br /><em style={{ fontStyle: "italic" }}>y haz tu pedido</em></h1>
+        <p style={{ fontSize: 12, opacity: 0.4, marginTop: 12, maxWidth: 420 }}>Navega por nuestro catálogo, añade los modelos que te interesen y envíanos tu selección directamente.</p>
+      </div>
+
+      {/* TABS */}
+      <div style={{ padding: "16px " + pad, borderBottom: "1px solid rgba(24,51,47,0.06)", position: "sticky", top: 64, zIndex: 50, background: C, display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
+        {[
+          ["top", "Top Ventas"],
+          [null, "Todos"],
+          ["Essential", "Essential"],
+          ["Icons", "Icons"],
+          ["Acetato", "Acetato"],
+        ].map(function (t) {
+          var isActive = (t[0] === "top" && tab === "top" && !colFilter) || (t[0] !== "top" && tab !== "top" && colFilter === t[0]);
+          return (
+            <button key={t[1]} onClick={function () {
+              if (t[0] === "top") { setTab("top"); setColFilter(null); }
+              else { setTab("all"); setColFilter(t[0]); }
+            }} style={{
+              padding: "7px 16px", borderRadius: 20, border: "1px solid " + (isActive ? G : "rgba(24,51,47,0.12)"),
+              background: isActive ? G : "transparent", color: isActive ? C : G,
+              fontSize: 10, fontWeight: 600, letterSpacing: 1, cursor: "pointer",
+              transition: "all 0.2s",
+            }}>{t[1]}</button>
+          );
+        })}
+      </div>
+
+      {/* COLOR FILTER */}
+      <div style={{ padding: "12px " + pad, display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+        <span style={{ fontSize: 9, opacity: 0.3, letterSpacing: 1, textTransform: "uppercase", marginRight: 4 }}>Color:</span>
+        {COLOR_FILTERS.map(function (cf) {
+          var isActive = colorFilter === cf.value;
+          return (
+            <button key={cf.label} onClick={function () { setColorFilter(isActive ? null : cf.value); }} style={{
+              display: "flex", alignItems: "center", gap: 4,
+              padding: "4px 10px", borderRadius: 14,
+              border: isActive ? "2px solid " + G : "1px solid rgba(24,51,47,0.1)",
+              background: isActive ? "rgba(24,51,47,0.06)" : "transparent",
+              cursor: "pointer", fontSize: 9, fontWeight: 500,
+            }}>
+              {cf.hex && <span style={{ width: 10, height: 10, borderRadius: "50%", background: cf.hex, border: "1px solid rgba(0,0,0,0.08)" }} />}
+              {cf.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* PRODUCT GRID */}
+      <div style={{ padding: "8px " + pad + " 80px" }}>
+        <p style={{ fontSize: 10, opacity: 0.3, marginBottom: 16 }}>{filtered.length} modelo{filtered.length !== 1 ? "s" : ""}</p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: 14 }}>
+          {filtered.map(function (p, i) {
+            var inCart = cart.find(function (c) { return c.id === p.id; });
+            return (
+              <div key={p.id} style={{ borderRadius: 8, overflow: "hidden", border: "1px solid rgba(24,51,47,0.06)", background: "#fff", transition: "transform 0.2s, box-shadow 0.2s" }}
+                onMouseEnter={function (e) { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(24,51,47,0.08)"; }}
+                onMouseLeave={function (e) { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
+              >
+                <div style={{ position: "relative", aspectRatio: "1/1", background: "linear-gradient(135deg, #f5ede4, #ebe3da)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                  {tab === "top" && <span style={{ position: "absolute", top: 8, left: 8, width: 24, height: 24, borderRadius: "50%", background: p.rank <= 3 ? D : G, color: p.rank <= 3 ? G : C, fontSize: 9, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>#{p.rank}</span>}
+                  <span style={{ position: "absolute", top: 8, right: 8, fontSize: 8, letterSpacing: 1, textTransform: "uppercase", opacity: 0.35, fontWeight: 600 }}>{p.col}</span>
+                  <img src={p.img} alt={p.name} style={{ width: "80%", height: "80%", objectFit: "contain", transition: "transform 0.3s" }}
+                    onMouseEnter={function (e) { e.currentTarget.style.transform = "scale(1.08) rotate(2deg)"; }}
+                    onMouseLeave={function (e) { e.currentTarget.style.transform = ""; }}
+                  />
+                </div>
+                <div style={{ padding: "10px 12px" }}>
+                  <p style={{ fontSize: 12, fontWeight: 600, marginBottom: 2 }}>{p.name}</p>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span style={{ fontSize: 11, opacity: 0.4 }}>{p.price}€ PVP</span>
+                    <div style={{ display: "flex", gap: 3 }}>
+                      {p.colors.map(function (c) {
+                        var cf = COLOR_FILTERS.find(function (f) { return f.value === c; });
+                        return cf && cf.hex ? <span key={c} style={{ width: 8, height: 8, borderRadius: "50%", background: cf.hex, border: "1px solid rgba(0,0,0,0.08)" }} /> : null;
+                      })}
+                    </div>
+                  </div>
+                  <button onClick={function () { addToCart(p); }} style={{
+                    marginTop: 8, width: "100%", padding: "7px 0", borderRadius: 4,
+                    border: inCart ? "none" : "1px solid rgba(24,51,47,0.12)",
+                    background: inCart ? G : "transparent", color: inCart ? C : G,
+                    fontSize: 9, fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase",
+                    cursor: "pointer", transition: "all 0.2s",
+                  }}>{inCart ? "✓ Añadido (" + inCart.qty + ")" : "+ Añadir"}</button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* FLOATING CART */}
+      {cartOpen && <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, background: "rgba(0,0,0,0.4)", zIndex: 200 }} onClick={function () { setCartOpen(false); }} />}
+      <div style={{
+        position: "fixed", top: 0, right: 0, bottom: 0, width: "min(380px, 90vw)",
+        background: "#fff", zIndex: 201, padding: 24,
+        transform: cartOpen ? "translateX(0)" : "translateX(100%)",
+        transition: "transform 0.3s ease",
+        display: "flex", flexDirection: "column",
+        boxShadow: "-8px 0 40px rgba(0,0,0,0.1)",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+          <h3 style={{ fontFamily: SF, fontSize: 20, fontWeight: 300 }}>Mi selección</h3>
+          <button onClick={function () { setCartOpen(false); }} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 20, opacity: 0.3 }}>✕</button>
+        </div>
+
+        {cart.length === 0 ? (
+          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <p style={{ fontSize: 12, opacity: 0.3, textAlign: "center" }}>Añade modelos desde el catálogo<br />para crear tu pedido</p>
+          </div>
+        ) : (
+          <div style={{ flex: 1, overflowY: "auto" }}>
+            {cart.map(function (item) {
+              return (
+                <div key={item.id} style={{ display: "flex", gap: 12, padding: "12px 0", borderBottom: "1px solid rgba(24,51,47,0.06)", alignItems: "center" }}>
+                  <img src={item.img} alt={item.name} style={{ width: 50, height: 50, objectFit: "contain", background: "#f5ede4", borderRadius: 4 }} />
+                  <div style={{ flex: 1 }}>
+                    <p style={{ fontSize: 12, fontWeight: 600 }}>{item.name}</p>
+                    <p style={{ fontSize: 9, opacity: 0.4 }}>{item.col} — {item.price}€/ud</p>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <button onClick={function () { updateQty(item.id, -1); }} style={{ width: 22, height: 22, borderRadius: "50%", border: "1px solid rgba(24,51,47,0.12)", background: "none", cursor: "pointer", fontSize: 12 }}>−</button>
+                    <span style={{ fontSize: 12, fontWeight: 600, minWidth: 16, textAlign: "center" }}>{item.qty}</span>
+                    <button onClick={function () { updateQty(item.id, 1); }} style={{ width: 22, height: 22, borderRadius: "50%", border: "1px solid rgba(24,51,47,0.12)", background: "none", cursor: "pointer", fontSize: 12 }}>+</button>
+                  </div>
+                  <button onClick={function () { removeFromCart(item.id); }} style={{ background: "none", border: "none", cursor: "pointer", opacity: 0.25, fontSize: 14 }}>✕</button>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {cart.length > 0 && (
+          <div style={{ borderTop: "1px solid rgba(24,51,47,0.08)", paddingTop: 16, marginTop: 12 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
+              <span style={{ fontSize: 12, fontWeight: 600 }}>Total</span>
+              <span style={{ fontFamily: SF, fontSize: 22, fontWeight: 300 }}>{cart.reduce(function (s, i) { return s + i.qty * i.price; }, 0)}€</span>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <button onClick={sendWhatsApp} style={{
+                padding: "11px 0", borderRadius: 4, border: "none",
+                background: "#8B6B4A", color: "#fff",
+                fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase",
+                cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                Enviar por WhatsApp
+              </button>
+              <button onClick={sendEmail} style={{
+                padding: "11px 0", borderRadius: 4,
+                border: "1px solid rgba(24,51,47,0.15)", background: "transparent", color: G,
+                fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase",
+                cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Enviar por email
+              </button>
+            </div>
+            <p style={{ fontSize: 8, opacity: 0.3, textAlign: "center", marginTop: 10 }}>No es una compra. Es una solicitud de pedido.</p>
+          </div>
+        )}
+      </div>
+
+      {/* FLOATING CART BUTTON */}
+      {!cartOpen && cart.length > 0 && (
+        <button onClick={function () { setCartOpen(true); }} style={{
+          position: "fixed", bottom: 24, right: 24, zIndex: 90,
+          display: "flex", alignItems: "center", gap: 8,
+          background: G, color: C, border: "none",
+          padding: "12px 20px", borderRadius: 24,
+          fontSize: 11, fontWeight: 600, letterSpacing: 1,
+          cursor: "pointer", boxShadow: "0 4px 20px rgba(24,51,47,0.2)",
+        }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C} strokeWidth="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          Mi pedido ({cartCount})
+        </button>
+      )}
+    </div>
+  );
+}
+
+/* ===================== LANDING ===================== */
+function Landing() {
   const [lang, setLang] = useState(function () {
     var nav = (typeof navigator !== "undefined" && navigator.language) || "es";
     var code = nav.slice(0, 2).toUpperCase();
@@ -270,6 +593,7 @@ export default function App() {
 
   return (
     <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: G, background: C, overflowX: "hidden" }}>
+
 
       {/* NAV */}
       <nav
@@ -426,7 +750,7 @@ export default function App() {
             return (
               <Fade key={i} d={i * 0.07}>
                 <div style={{ height: "clamp(280px, 40vh, 380px)", borderRadius: 4, overflow: "hidden", position: "relative", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: C }}>
-                  <img src={["https://res.cloudinary.com/dekvzwn7b/image/upload/w_600,q_auto,f_auto/v1776281360/_ABD8565_vyyr2r.jpg","https://res.cloudinary.com/dekvzwn7b/image/upload/w_600,q_auto,f_auto/v1776281988/_ANT3201_lhwuw6.jpg","https://res.cloudinary.com/dekvzwn7b/image/upload/w_600,q_auto,f_auto/v1776281907/ASDSADAS_eokgwz.png"][i]} alt={c[0]} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={["https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png?v=1776245807","https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4639.jpg?v=1706549463","https://cdn.shopify.com/s/files/1/0052/2797/0629/files/98.png?v=1772021745"][i]} alt={c[0]} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "70%", background: "linear-gradient(0deg, " + COL_BG[i] + "ee 0%, " + COL_BG[i] + "cc 40%, transparent 100%)" }} />
                   <div style={{ position: "relative", zIndex: 1, padding: "clamp(14px, 2vw, 24px)" }}>
                   <p style={{ fontSize: 8, letterSpacing: 3, textTransform: "uppercase", opacity: 0.4, marginBottom: 4 }}>{c[1]}</p>
@@ -486,17 +810,17 @@ export default function App() {
         </Fade>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 10 }}>
           {[
-            { name: "Bergman Rust", col: "Essential", price: "50", c: "#8B4513", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277356/209_m09kf5.png" },
-            { name: "Bergman Brown Carey", col: "Essential", price: "50", c: "#6B4226", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776278143/198_zwfjrd.png" },
-            { name: "Chastain Rouge Light", col: "Essential", price: "50", c: "#c4756b", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277356/136_djjduf.png" },
-            { name: "Bolden Bruma", col: "Essential", price: "50", c: "#c4b5a0", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277357/82_k0ch1q.png" },
-            { name: "Lamarr Louvre", col: "Icons", price: "50", c: "#2d6b4f", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
-            { name: "Gugu Gold Green", col: "Icons", price: "50", c: "#c4a882", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
-            { name: "Leigh Chalk", col: "Acetato", price: "70", c: "#e8dcc8", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277356/112_rljk4y.png" },
-            { name: "Lawrence Guiza", col: "Icons", price: "50", c: "#c4a882", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
-            { name: "Berry Tea", col: "Icons", price: "50", c: "#8B6B5A", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-            { name: "Arden Cocoa", col: "Acetato", price: "70", c: "#8B6B4A", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776278143/98_qgiol5.png" },
-            { name: "Novak Mocha", col: "Acetato", price: "70", c: "#6B3A2A", img: "https://res.cloudinary.com/dekvzwn7b/image/upload/w_400,q_auto,f_auto/v1776277357/92_jyflpk.png" },
+            { name: "Bergman Rust", col: "Essential", price: "50", c: "#8B4513", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png?v=1776245807" },
+            { name: "Bergman Brown Carey", col: "Essential", price: "50", c: "#6B4226", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162.png?v=1774601046" },
+            { name: "Chastain Rouge Light", col: "Essential", price: "50", c: "#c4756b", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png?v=1774601149" },
+            { name: "Bolden Bruma", col: "Essential", price: "50", c: "#c4b5a0", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/194.png?v=1772012134" },
+            { name: "Lamarr Louvre", col: "Icons", price: "50", c: "#2d6b4f", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4639.jpg?v=1706549463" },
+            { name: "Gugu Gold Green", col: "Icons", price: "50", c: "#c4a882", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/products/GUGUGOLDGREENMINUEWEB.png?v=1624405247" },
+            { name: "Leigh Chalk", col: "Acetato", price: "70", c: "#e8dcc8", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png?v=1772021467" },
+            { name: "Lawrence Guiza", col: "Icons", price: "50", c: "#c4a882", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/image_b5a853c2-8868-432d-b7a6-df3510f4be8c.webp?v=1706548881" },
+            { name: "Berry Tea", col: "Icons", price: "50", c: "#8B6B5A", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0263.jpg?v=1719409656" },
+            { name: "Arden Cocoa", col: "Acetato", price: "70", c: "#8B6B4A", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/98.png?v=1772021745" },
+            { name: "Novak Mocha", col: "Acetato", price: "70", c: "#6B3A2A", img: "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png?v=1772021879" },
           ].map(function (prod, i) {
             return (
               <Fade key={i} d={i * 0.04}>
@@ -517,6 +841,19 @@ export default function App() {
             );
           })}
         </div>
+        <Fade d={0.2}>
+          <div style={{ textAlign: "center", marginTop: 28 }}>
+            <a href="#/catalogo" style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              background: G, color: C, padding: "11px 28px",
+              borderRadius: 4, fontSize: 10, fontWeight: 600, letterSpacing: 1.5,
+              textTransform: "uppercase", textDecoration: "none",
+            }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={C} strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+              Ver catálogo completo y hacer pedido
+            </a>
+          </div>
+        </Fade>
       </section>
 
 
@@ -651,7 +988,7 @@ export default function App() {
         <div style={{ display: "flex", gap: 24, alignItems: "center", maxWidth: 700, margin: "0 auto", flexWrap: "wrap" }}>
           <Fade>
             <div style={{ width: 200, height: 200, borderRadius: 8, overflow: "hidden", flexShrink: 0, background: C }}>
-              <img src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_300,q_auto,f_auto/v1776280365/MINUE_5_gayd2f.png" alt="Packaging" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/194.png?v=1772012134" alt="Packaging" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
           </Fade>
           <Fade d={0.1}>
@@ -889,7 +1226,7 @@ export default function App() {
             </div>
             {/* Grid - Instagram screenshot */}
             <div style={{ overflow: "hidden" }}>
-              <img src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776280507/Captura_de_pantalla_2026-04-15_a_las_21.14.54_nq3fc7.png" alt="Instagram @minue_opticians" style={{ width: "100%", display: "block" }} />
+              <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/products/GUGUGOLDGREENMINUEWEB.png?v=1624405247" alt="Instagram @minue_opticians" style={{ width: "100%", display: "block" }} />
             </div>
           </div>
         </Fade>
