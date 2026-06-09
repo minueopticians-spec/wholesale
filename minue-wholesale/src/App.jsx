@@ -4,7 +4,7 @@ const G = "#18332f";
 const C = "#f8efe6";
 const D = "#b8860b";
 const SF = "'Cormorant Garamond', Georgia, serif";
-const LANGS = ["ES", "FR", "DE", "EN"];
+const LANGS = ["ES", "FR", "DE", "EN", "IT"];
 const COL_BG = ["#2d6b4f", "#18332f", "#1a5276"];
 const CASE_BG = ["#A8C6A0", "#A8C8E0", "#E8DCC8", "#D4784A"];
 const MODS = ["Bergman", "Bolden", "Cooper II", "Chastain", "Vitti", "Baker", "Hart", "Lawrence", "Lamarr", "Berry"];
@@ -117,6 +117,34 @@ const TX = {
     bm: ["Umsatz","Bestellungen","Produkte","Auf Lager"], pf: ["Echtzeit-Bestand", "Verfolgung", "Rechnungen", "Kataloge", "Alerts", "Mehrsprachig"],
     ig: ["Folgen Sie uns", "@minueopticians", "Auf Instagram folgen"],
     ct: ["Werden Sie Teil der Minuë Familie", "Bereit", "aufzufallen", " ?", "B2B-Zugang", "Auf Faire"],
+  },
+  IT: {
+    bp: ["Più di un packaging","Scopri l'esperienza Beyond the Frame SS26","Vedi Packaging"], bt: ["Specifiche Tecniche","UV400, policarbonato, certificazione UE e FDA. Scopri ogni dettaglio.","Vedi Specifiche"], la: ["Minuë America Latina", "Ora anche", "in LATAM", "Minuë arriva in America Latina grazie al nostro partner commerciale a Bogotá. Se hai un'ottica, un concept store o vuoi distribuire Minuë nel tuo paese, contatta direttamente il nostro team LATAM.", "Bogotá, Colombia", "CRA 19a 85 69", "Tutta l'America Latina", "Contattare LATAM"], db: ["Distribuisci Minuë", "Vuoi rappresentarci", "nella tua zona?", "Cerchiamo distributori e agenti commerciali che condividano la nostra visione. Un marchio in crescita con presenza in 14 paesi, clientela fedele e un prodotto che si vende da solo.", "Esclusività territoriale", "Materiale marketing ed espositori", "Formazione e supporto commerciale dedicato", "Margini interessanti e politica prezzi stabile", "Piattaforma di gestione B2B propria", "Parliamone", "hola@minueopticians.com"], mn: [["Contattare","Parliamo del tuo progetto","hola@minueopticians.com"],["Accesso B2B","Registrati sulla nostra piattaforma","b2b.minueopticians.com"],["Ordina su Faire","Fai il tuo ordine su Faire","faire.com/minue"],["Vedi Design","Esplora tutta la collezione","minueopticians.com"],["Novità","Le ultime novità Minuë","SS26 Beyond the Frame"]], nl: [["Collezioni","collections"],["Retailers","wholesale"],["Distributori","distributors"],["Contatto","cta"]], nd: "Sei un distributore?", na: "Richiedi Accesso",
+    h: ["B2B Eyewear · Siviglia, dal 2019", "Design", "trasformati in", "sguardi", "Stile che differenzia il tuo punto vendita. Qualità che fidelizza.", "Diventa Partner", "Esplora"],
+    st: ["56+", "Modelli", "163+", "Prodotti", "14", "Paesi", "6+", "Anni"],
+    tk: [["350+","Città"],["14","Paesi"],["56+","Design"],["163+","Prodotti"],["6+","Anni"]],
+    qt: ["Per essere insostituibili bisogna essere diversi.", "Coco Chanel", "L'essenza di Minuë in ogni sguardo."],
+    bs: ["Top Vendite", "I più richiesti", "dai retailers", "PVP"], dl: "Scarica Catalogo SS26", cl: ["Le Nostre Collezioni", "Tre linee,", "un'anima"], dc: ["Collezione SS26","PDF — Essential + Icons + Acetato"], pv: ["Oltre","la montatura"],
+    ci: [["Essential", "Classici Raffinati", "~23 modelli · 45-50EUR", "Silhouette senza tempo dalle linee pulite."], ["Icons", "Pezzi con Carattere", "~22 modelli · 45-50EUR", "Design audaci con personalità."], ["Acetato", "Artigianato Premium", "~11 modelli · 65-70EUR", "Acetato premium. Edizione limitata."]],
+    fm: ["Famiglia Minuë", "Volti che", "ispirano"],
+    pe: ["città", "paesi", "continenti", "Solo in punti vendita selezionati"], pr: ["Presenza Globale", "Da", "Siviglia", "al mondo"],
+    co: ["Francia", "Spagna", "Germania", "Italia", "Paesi Bassi", "Belgio", "Svizzera", "Danimarca", "Portogallo", "Grecia", "Regno Unito", "Australia", "Colombia", "USA"],
+    pa: ["Dove Vive Minuë", "Spazi selezionati,", "retail elevato"],
+    pi: [["Ottiche Indipendenti", "Montature distintive per clienti esigenti."], ["Concept Store", "Occhiali convivono con moda e lifestyle."], ["Farmacie con Identità", "Bellezza e benessere."], ["Multimarca", "Accessori unici per retailers."]],
+    pk: ["Beyond the Frame SS26", "Più di un", "packaging"],
+    pc: ["Pistacchio", "Baby Blue", "Crema", "Arancione"],
+    va: ["Perché Minuë", "Valori", "che ci definiscono"],
+    vi: [["Qualità Premium", "UV400, lenti policarbonato, acetato artigianale. Certificazione UE e FDA."], ["Clientela Fedele", "6+ anni. Prodotto moda con clienti che tornano stagione dopo stagione."], ["Supporto Completo", "Piattaforma B2B propria, espositori gratis e agenti commerciali dedicati."], ["Esclusività Territoriale", "Zone esclusive per ogni partner. Proteggiamo il tuo investimento."], ["Prezzi Stabili", "Nessuna promozione aggressiva né sconti che svalutano il marchio."], ["Più di un Accessorio", "Design con anima. Posizionamento gamma media premium curato."]],
+    fb: ["Top Shop","Spedizione puntuale","Bestseller"], rv: ["Cosa Dicono", "Fiducia verificata"],
+    ri: [["Design incredibili, le mie clienti li adorano", "Spedizione veloce e packaging spettacolare", "Miglior rapporto qualità-prezzo sul mercato", "Riordino sempre, lo stock non manca mai", "L'espositore gratis è un grande plus"]],
+    wa: ["Tariffe per volume adattate al tuo business", "Espositori gratis da 10 unità", "Spedizione in 48-72h", "Esclusività territoriale garantita", "Accedi al tuo spazio B2B per consultare prezzi e condizioni", "Accedi alla piattaforma B2B"], ws: ["Programma All'ingrosso", "Condizioni pensate", "per crescere insieme"],
+    wt: [["<10 pz", "22.90", "Pagamento unico"], ["10-19", "21.90", "Pagamento unico"], ["20-29", "19.90", "2 esp. gratis"], ["30-39", "18.90", "3 esp. gratis"], ["40-60", "17.90", "3 esp. gratis"]],
+    hw: ["Come Lavoriamo", "Fai il tuo primo ordine", "con noi"],
+    hi: [["01", "Fai il Tuo Ordine", "B2B, agente o Faire."], ["02", "Spedizione Rapida", "48-72h. Gratis da 20 unità."], ["03", "Espositore", "Gratis da 10 unità."], ["04", "Riassortimento", "Facile via piattaforma."]],
+    pl: ["Piattaforma B2B", "Il tuo spazio", "wholesale privato"],
+    bm: ["Fatturazione","Ordini","Prodotti","In stock"], pf: ["Stock in tempo reale", "Tracciamento", "Fatture", "Cataloghi", "Avvisi", "Multi-lingua"],
+    ig: ["Seguici", "@minueopticians", "Segui su Instagram"],
+    ct: ["Entra nella famiglia Minuë", "Pronto a", "distinguerti", "?", "Richiedi Accesso B2B", "Vedi su Faire"],
   },
   EN: {
     bp: ["Mas que un packaging","Descubre la experiencia Beyond the Frame SS26","Ver Packaging"], bt: ["Especificaciones Tecnicas","UV400, policarbonato, certificacion UE y FDA. Conoce cada detalle.","Ver Especificaciones"], la: ["Minuë Latin America", "Now also", "in LATAM", "Minuë arrives in Latin America through our commercial partner in Bogotá. If you have an optician shop, concept store or want to distribute Minuë in your country, contact our LATAM team directly.", "Bogotá, Colombia", "CRA 19a 85 69", "All Latin America", "Contact LATAM"], db: ["Distribute Minuë", "Want to represent us", "in your area?", "We are looking for distributors and commercial agents who share our vision. A growing brand present in 14 countries, loyal clientele and a product that sells itself.", "Territorial exclusivity", "Marketing materials and displays", "Training and dedicated commercial support", "Attractive margins and stable pricing policy", "Proprietary B2B management platform", "Let us talk", "hola@minueopticians.com"], mn: [["Contact","Let us talk about your project","hola@minueopticians.com"],["B2B Access","Register on our platform","b2b.minueopticians.com"],["Order on Faire","Place your order on Faire","faire.com/minue"],["View Designs","Explore the full collection","minueopticians.com"],["News","Latest from Minue","SS26 Beyond the Frame"]], nl: [["Collections","collections"],["Retailers","wholesale"],["Distributors","distributors"],["Contact","cta"]], nd: "Distributor?", na: "Request Access",
@@ -562,6 +590,7 @@ function Landing() {
     if (code === "FR") return "FR";
     if (code === "DE") return "DE";
     if (code === "EN") return "EN";
+    if (code === "IT") return "IT";
     return "ES";
   });
   const [scrollY, setScrollY] = useState(0);
@@ -674,7 +703,9 @@ function Landing() {
         style={{
           minHeight: "100vh", display: "flex", flexDirection: "column",
           justifyContent: "center", padding: "92px clamp(18px, 6vw, 72px) 44px",
-          background: G, color: C,
+          background: "linear-gradient(160deg, rgba(24,51,47,0.88), rgba(24,51,47,0.75)), url(https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39_44c32943-2007-46af-8be9-108b17eb72b4.png?v=1781006140)",
+          backgroundSize: "cover", backgroundPosition: "center",
+          color: C, position: "relative",
         }}
       >
         <Fade>
@@ -1303,7 +1334,7 @@ function Landing() {
         </div>
       </section>
 
-      {/* FRANCE */}
+      {/* FRANCE + ITALY */}
       <section id="france" style={{ padding: "clamp(32px, 4vh, 48px) clamp(18px, 5vw, 72px)", background: C }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 28, alignItems: "center", maxWidth: 700, margin: "0 auto" }}>
           <Fade>
@@ -1331,6 +1362,42 @@ function Landing() {
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                   <span style={{ fontSize: 10, opacity: 0.6 }}>+33 6 77 16 64 21</span>
+                </div>
+              </div>
+            </div>
+          </Fade>
+        </div>
+      </section>
+
+
+
+      {/* ITALY */}
+      <section id="italy" style={{ padding: "clamp(32px, 4vh, 48px) clamp(18px, 5vw, 72px)", background: "#fff" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 28, alignItems: "center", maxWidth: 700, margin: "0 auto" }}>
+          <Fade>
+            <div>
+              <p style={{ fontSize: 10, letterSpacing: 3, textTransform: "uppercase", color: D, marginBottom: 10 }}>Minuë Italia</p>
+              <h3 style={{ fontFamily: SF, fontSize: "clamp(1.3rem, 2vw, 1.7rem)", fontWeight: 300, lineHeight: 1.2, marginBottom: 16 }}>Ora disponibile<br /><em style={{ fontStyle: "italic" }}>in Italia</em></h3>
+              <p style={{ fontSize: 11, opacity: 0.45, lineHeight: 1.7 }}>Minuë è disponibile in Italia grazie al nostro showroom partner. Contattalo direttamente per scoprire la collezione.</p>
+            </div>
+          </Fade>
+          <Fade d={0.1}>
+            <div style={{ background: G, borderRadius: 8, padding: 24, color: C }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+                <img src={LOGO_W} alt="Minue" style={{ height: 24 }} />
+                <div style={{ width: 1, height: 16, background: "rgba(248,239,230,0.15)" }} />
+                <span style={{ fontSize: 10, opacity: 0.5, letterSpacing: 1 }}>ITALIA</span>
+              </div>
+              <p style={{ fontSize: 14, fontWeight: 600, marginBottom: 2 }}>Cretella Showroom</p>
+              <p style={{ fontSize: 10, color: D, marginBottom: 14 }}>Italia</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6, borderTop: "1px solid rgba(248,239,230,0.08)", paddingTop: 12 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  <span style={{ fontSize: 10, opacity: 0.6 }}>+39 331 762 1348</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  <a href="https://www.instagram.com/cretellashowroom_" target="_blank" rel="noopener noreferrer" style={{ fontSize: 10, color: D, textDecoration: "none" }}>@cretellashowroom_</a>
                 </div>
               </div>
             </div>
